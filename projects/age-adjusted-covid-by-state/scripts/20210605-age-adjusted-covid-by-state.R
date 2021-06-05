@@ -24,7 +24,7 @@ pop <- read.csv('./data/sc-est2019-agesex-civ.csv')
 
 pop <- pop %>%
   filter(
-    SEX == 0 & # Total population
+    SEX != 0 & # Total population
     SUMLEV == 40 & # State granules
     AGE != 999 # Strip out total population count
   )
@@ -77,12 +77,14 @@ covid <- covid %>%
     age_group
   ) %>%
   summarize(
-    covid_19_deaths = sum(covid_19_deaths)
+    covid_19_deaths = sum(covid_19_deaths),
+    .groups = 'drop'
   )
 
 pop <- pop %>%
   group_by(
     name,
+    sex,
     age_group
   ) %>%
   summarize(
@@ -91,19 +93,78 @@ pop <- pop %>%
   ) %>%
   rename(
     state = name
+  ) %>%
+  group_by(
+    state,
+    age_group
+  ) %>%
+  summarize(
+    male_population = sum(population[sex == 1]),
+    population = sum(population),
+    male_percentage = male_population / population
+  ) %>%
+  select(
+    - male_population
   )
 
 df <- inner_join(covid, pop, by = c('state', 'age_group'))
+df$no_deaths <- df$population - df$covid_19_deaths
 
+fit <- glm(
+  cbind(covid_19_deaths, no_deaths) ~ age_group + relevel(state, ref = 'Florida') + male_percentage, 
+  data = df, 
+  family = 'binomial'
+)
+
+coeff <- broom::tidy(fit) %>% 
+  select(
+    term, 
+    estimate
+  ) %>% 
+  mutate(
+    estimate = round(exp(estimate), 2), # Exponentiate for OR
+    state = gsub('.*)', '', term) # Extract state
+  ) %>%
+  filter(
+    state %in% df$state
+  )
+
+coeff <- coeff[order(coeff$estimate), ]
+coeff$state <- factor(coeff$state, coeff$state)
 
 # Visualization ---------------------------------------------------------------
 
 ggplot() +
-  geom_bar(
-    data = pop[pop$NAME == 'United States' & pop$AGE < 100, ],
+  geom_point(
+    data = coeff,
     aes(
-      x = AGE,
-      y = ifelse(SEX == 0, POPEST2019_CIV * -1, POPEST2019_CIV)
-    ),
-    stat = 'identity'
+      x = state,
+      y = estimate
+    )
+  ) +
+  geom_hline(
+    yintercept = 1,
+    linetype = 2
+  ) +
+  labs(
+    title = '',
+    subtitle = '',
+    x = 'State',
+    y = 'Age-Adjusted Odds Ratio'
+  ) +
+  coord_flip() +
+  theme_minimal(
+    base_size = 36
   )
+
+ggsave(
+  filename = './output/p1.png', 
+  plot = p1, 
+  height = 10, 
+  width = 26,
+  type = 'cairo-png'
+)
+
+diversity <- read.csv('./data/wallethub-diversity-rankings.csv')
+
+names(diversity) <- janitor::make_clean_names(names(diversity))

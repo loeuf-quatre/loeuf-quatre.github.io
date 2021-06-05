@@ -1,0 +1,53 @@
+﻿State,Overall Religiosity Rank,Believe in God with Certainty,Consider Religion Important,Pray Daily,Attend Weekly Worship Services
+or District,,,,,
+ Alabama,1,0.82,0.77,0.73,0.51
+ Mississippi,1,0.82,0.74,0.75,0.49
+ Tennessee,3,0.78,0.71,0.7,0.51
+ Louisiana,4,0.75,0.71,0.68,0.46
+ South Carolina,5,0.74,0.69,0.66,0.47
+ Arkansas,5,0.77,0.7,0.65,0.41
+ West Virginia,7,0.77,0.64,0.68,0.46
+ Georgia,8,0.74,0.64,0.64,0.42
+ Oklahoma,8,0.71,0.64,0.65,0.43
+ North Carolina,10,0.73,0.62,0.66,0.39
+ Texas,11,0.69,0.63,0.63,0.42
+ Utah,11,0.61,0.58,0.61,0.53
+ Kentucky,13,0.75,0.63,0.63,0.39
+ Virginia,14,0.67,0.6,0.6,0.44
+ Missouri,15,0.7,0.56,0.59,0.37
+ South Dakota,16,0.69,0.57,0.56,0.36
+ Ohio,17,0.67,0.56,0.57,0.38
+ New Mexico,18,0.63,0.59,0.55,0.36
+ New Jersey,19,0.6,0.5,0.53,0.35
+ Iowa,19,0.66,0.53,0.5,0.36
+ Kansas,19,0.66,0.5,0.53,0.37
+ Florida,22,0.64,0.53,0.56,0.35
+ Indiana,22,0.63,0.53,0.52,0.37
+ Maryland,22,0.64,0.5,0.51,0.31
+ Nebraska,22,0.66,0.54,0.52,0.39
+ Wyoming,22,0.66,0.49,0.53,0.38
+ Pennsylvania,27,0.61,0.51,0.54,0.34
+ Michigan,27,0.63,0.5,0.53,0.33
+ Arizona,27,0.62,0.51,0.55,0.34
+ North Dakota,27,0.64,0.53,0.51,0.33
+ District of Columbia,27,0.55,0.5,0.51,0.28
+ Delaware,32,0.61,0.46,0.49,0.34
+ Illinois,33,0.61,0.5,0.51,0.34
+ Idaho,33,0.62,0.51,0.5,0.35
+ California,35,0.54,0.47,0.51,0.31
+ Minnesota,35,0.56,0.46,0.47,0.34
+ Nevada,35,0.59,0.44,0.48,0.31
+ Rhode Island,35,0.6,0.48,0.48,0.36
+ Oregon,39,0.57,0.45,0.45,0.29
+ Montana,39,0.64,0.44,0.51,0.31
+ Colorado,41,0.55,0.47,0.5,0.3
+ Hawaii,41,0.62,0.44,0.52,0.28
+ New York,43,0.56,0.45,0.48,0.29
+ Washington,44,0.55,0.44,0.46,0.3
+ Wisconsin,44,0.56,0.44,0.46,0.27
+ Alaska,44,0.55,0.41,0.49,0.3
+ Connecticut,47,0.54,0.42,0.47,0.28
+ Maine,48,0.48,0.34,0.35,0.22
+ Vermont,48,0.41,0.32,0.33,0.21
+ Massachusetts,50,0.4,0.33,0.37,0.23
+ New Hampshire,50,0.43,0.33,0.36,0.22
