@@ -3,6 +3,4 @@
 
 @import "{{ site.theme }}";
 
-body {
-  color: blue;
-}
+.title{ color: red; font: 12px tahoma;}
