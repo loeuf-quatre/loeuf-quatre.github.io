@@ -1,3 +1,2 @@
-# Hello world
-
-Greatest hits
+- Post 1: Texas
+- Post 2: California
