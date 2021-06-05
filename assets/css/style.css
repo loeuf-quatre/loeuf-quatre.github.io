@@ -2,5 +2,9 @@
 ---
 
 @import "{{ site.theme }}";
+{
+    "ui.colorscheme": "solarized8_light",
 
-.title{ color: red; font: 12px tahoma;}
+    "colors.background": "#eee8d5",
+    "colors.title.background": "#eee8d5",
+}
