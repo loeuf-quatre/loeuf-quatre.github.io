@@ -3,13 +3,13 @@
 
 @import "{{ site.theme }}";
 body {
-  color: blue;
+  color: red;
 }
 
 h1 {
-  color: green;
+  color: blue;
 }
 
-.header {
-    background: #fff !important;
+.header-container-wrapper {
+	background-color: red;
 }
